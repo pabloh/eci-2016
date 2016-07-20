@@ -1,0 +1,22 @@
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix ns0: <http://ex.org/movie#> .
+
+<https://github.com/pabloh/eci-2016/blob/master/perfil.ttl#yo>
+  a foaf:Person ;
+  foaf:name "Pablo Herrero" ;
+  foaf:firstName "Pablo" ;
+  foaf:surname "Herrero" ;
+  foaf:birthday "24-12" ;
+  foaf:age 31 ;
+  foaf:gender "masculino"@es ;
+  foaf:homepage <https://www.github.com/pabloh> ;
+  foaf:based_near <http://sws.geonames.org/3435910/> ;
+  foaf:img <https://avatars0.githubusercontent.com/u/134495?v=3&s=400> ;
+  foaf:knows <http://aidanhogan.com/perfil.ttl>, <https://ar.linkedin.com/in/danycalvo/es>, <https://ar.linkedin.com/in/tlytle> ;
+  foaf:interest <https://www.wikidata.org/wiki/Q660936>, <http://www.wikidata.org/entity/Q200341>, <http://www.wikidata.org/entity/Q178934> ;
+  ns0:likesMovie <http://www.wikidata.org/entity/Q426828>, <http://www.wikidata.org/entity/Q18611373>, <http://www.wikidata.org/entity/Q181086> .
+
+<http://aidanhogan.com/teaching/ba/labs/01/perfil.ttl>
+  a foaf:Document ;
+  foaf:name "Perfil FOAF de Aidan"@es ;
+  foaf:primaryTopic <http://aidanhogan.com/teaching/ba/labs/01/perfil.ttl#yo>.
