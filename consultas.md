@@ -4,42 +4,42 @@
 
 ### 1
 
-```
+```sparql
 SELECT *
 WHERE { ?s ?r ?o }
 ```
 
 ### 2
 
-```
+```sparql
 SELECT *
 WHERE { ?s foaf:name ?o }
 ```
 
 ### 3
 
-```
+```sparql
 SELECT ?o
 WHERE { ?s foaf:name ?o }
 ```
 
 ### 4
 
-```
+```sparql
 SELECT *
 WHERE { <https://raw.githubusercontent.com/pabloh/eci-2016/master/perfil.ttl#yo> foaf:name ?o }
 ```
 
 ### 5
 
-```
+```sparql
 SELECT ?s
 WHERE { ?s foaf:firstName "José" }
 ```
 
 ### 6
 
-```
+```sparql
 SELECT ?n
 WHERE {
   ?p a              foaf:Person ;
@@ -51,7 +51,7 @@ ORDER BY DESC(?a)
 
 ### 7
 
-```
+```sparql
 SELECT ?n
 WHERE {
   ?p rdf:type       foaf:Person ;
@@ -65,7 +65,7 @@ OFFSET 4
 
 ### 8
 
-```
+```sparql
 SELECT ?n
 WHERE {
   ?p a              foaf:Person ;
@@ -81,7 +81,7 @@ WHERE {
 
 ### 9
 
-```
+```sparql
 SELECT ?a, ?n
 WHERE {
   <https://raw.githubusercontent.com/pabloh/eci-2016/master/perfil.ttl#yo> foaf:knows ?a .
@@ -91,7 +91,7 @@ WHERE {
 
 ### 10
 
-```
+```sparql
 SELECT DISTINCT ?p1, ?p2
 WHERE {
   ?p1 a foaf:Person .
@@ -111,14 +111,14 @@ WHERE {
 
 ### 13
 
-```
+```sparql
 SELECT (COUNT(?p) as ?countp)
 WHERE { ?p a foaf:Person . }
 ```
 
 ### 16
 
-```
+```sparql
 SELECT AVG(?ni) as ?avg
 WHERE {
   ?p a foaf:Person.
