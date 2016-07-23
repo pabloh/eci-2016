@@ -17,5 +17,5 @@
   ns0:likesMovie <http://www.wikidata.org/entity/Q426828>, <http://www.wikidata.org/entity/Q18611373>, <http://www.wikidata.org/entity/Q181086> .
 
 <> a foaf:Document ;
-	foaf:name "Perfil de Pablo Herrero"@es;
+	foaf:name "Perfil FOAF de Pablo Herrero"@es;
 	foaf:primaryTopic <#yo> .
