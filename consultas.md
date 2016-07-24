@@ -103,10 +103,14 @@ WHERE {
   UNION
   {
     ?p1 foaf:likesMovie ?m . ?p2 foaf:likesMovie ?m .
-  } .
+  }
 }
 ```
 ### 11
+
+```sparql
+...TODO...
+```
 
 ### 12
 
@@ -114,7 +118,7 @@ WHERE {
 PREFIX ex: <http://ex.org/movie#>
 CONSTRUCT { ?p1 ex:friendOfAFriend ?p2 }
 WHERE {  
-  
+  ...TODO...
 }
 ```
 
