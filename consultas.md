@@ -1,6 +1,6 @@
 # Laboratorios 2 & 3
 
-## 3.1
+## Ej 3.1
 
 ### 1
 
@@ -106,8 +106,19 @@ WHERE {
   } .
 }
 ```
+### 11
 
-## 3.2
+### 12
+
+```sparql
+PREFIX ex: <http://ex.org/movie#>
+CONSTRUCT { ?p1 ex:friendOfAFriend ?p2 }
+WHERE {  
+  
+}
+```
+
+## Ej 3.2
 
 ### 13
 
@@ -130,4 +141,11 @@ WHERE {
 }
 ```
 
-## 4
+### 17
+
+```sparql
+SELECT * 
+WHERE { <https://raw.githubusercontent.com/pabloh/eci-2016/master/perfil.ttl#yo> foaf:knows* ?foaf . }
+```
+
+## Ej 4
