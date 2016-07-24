@@ -1,6 +1,6 @@
 # Laboratorios 2 & 3
 
-## Ej 3.1
+## Ej. 3.1
 
 ### 1
 
@@ -118,7 +118,7 @@ WHERE {
 }
 ```
 
-## Ej 3.2
+## Ej. 3.2
 
 ### 13
 
@@ -148,4 +148,4 @@ SELECT *
 WHERE { <https://raw.githubusercontent.com/pabloh/eci-2016/master/perfil.ttl#yo> foaf:knows* ?foaf . }
 ```
 
-## Ej 4
+## Ej. 4
