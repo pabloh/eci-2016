@@ -124,8 +124,8 @@ WHERE {
   ?p2 a foaf:Person .
   ?p3 a foaf:Person .
   FILTER(?p1 != ?p2 && ?p2 != ?p3 && ?p1 != ?p3) .
-  ?p1 (foaf:knows) ?p2 . # ?p1 (foaf:knows|^foaf:knows) ?p2 .
-  ?p2 (foaf:knows) ?p3 . # ?p2 (foaf:knows|^foaf:knows) ?p3 .
+  ?p1 (foaf:knows) ?p2 .
+  ?p2 (foaf:knows) ?p3 .
 }
 ```
 
