@@ -42,7 +42,7 @@ WHERE { ?s foaf:firstName "José" }
 ```sparql
 SELECT ?n
 WHERE {
-  ?p a              foaf:Person ;
+  ?p rdf:type       foaf:Person ;
      foaf:firstName ?n ;
      foaf:age       ?a .
 }
@@ -68,7 +68,7 @@ OFFSET 4
 ```sparql
 SELECT ?n
 WHERE {
-  ?p a              foaf:Person ;
+  ?p rdf:type       foaf:Person ;
      foaf:firstName ?n ;
      foaf:age       ?a1 .
   FILTER(?a1 <= ?a2) .
@@ -97,19 +97,21 @@ WHERE {
   ?p1 a foaf:Person .
   ?p2 a foaf:Person .
   FILTER(?p1 != ?p2) .
-  {
-    ?p1 foaf:interest ?i . ?p2 foaf:interest ?i .
-  }
+  { ?p1 foaf:interest ?i . ?p2 foaf:interest ?i }
   UNION
-  {
-    ?p1 foaf:likesMovie ?m . ?p2 foaf:likesMovie ?m .
-  }
+  { ?p1 foaf:likesMovie ?m . ?p2 foaf:likesMovie ?m }
 }
 ```
 ### 11
 
 ```sparql
-...TODO...
+SELECT ?g
+WHERE {
+  GRAPH ?g {
+    ?p a foaf:Person; foaf:age ?a .
+    FILTER(30 <= ?a && ?a <= 39)
+  }
+}
 ```
 
 ### 12
@@ -118,7 +120,12 @@ WHERE {
 PREFIX ex: <http://ex.org/movie#>
 CONSTRUCT { ?p1 ex:friendOfAFriend ?p2 }
 WHERE {  
-  ...TODO...
+  ?p1 a foaf:Person .
+  ?p2 a foaf:Person .
+  ?p3 a foaf:Person .
+  FILTER(?p1 != ?p2 && ?p2 != ?p3 && ?p1 != ?p3) .
+  ?p1 (foaf:knows) ?p2 . # ?p1 (foaf:knows|^foaf:knows) ?p2 .
+  ?p2 (foaf:knows) ?p3 . # ?p2 (foaf:knows|^foaf:knows) ?p3 .
 }
 ```
 
@@ -128,7 +135,31 @@ WHERE {
 
 ```sparql
 SELECT (COUNT(?p) as ?countp)
-WHERE { ?p a foaf:Person . }
+WHERE { ?p a foaf:Person }
+```
+
+### 14
+
+```sparql
+SELECT (COUNT(DISTINCT ?p2) as ?countp)
+WHERE { 
+  ?p1 a foaf:Person .
+  ?p2 a foaf:Person .
+  ?p1 (foaf:knows) ?p2 .
+}
+```
+
+### 15
+
+```sparql
+SELECT (COUNT(DISTINCT ?p1) as ?countp)
+WHERE { 
+  ?p1 a foaf:Person .
+  FILTER NOT EXISTS {
+    ?p2 a foaf:Person .
+    ?p2 (foaf:knows) ?p1 .
+  }
+}
 ```
 
 ### 16
@@ -149,7 +180,31 @@ WHERE {
 
 ```sparql
 SELECT * 
-WHERE { <https://raw.githubusercontent.com/pabloh/eci-2016/master/perfil.ttl#yo> foaf:knows* ?foaf . }
+WHERE { <https://raw.githubusercontent.com/pabloh/eci-2016/master/perfil.ttl#yo> foaf:knows* ?p . }
+```
+### 18
+
+```sparql
+SELECT ?i
+WHERE {
+  <https://raw.githubusercontent.com/pabloh/eci-2016/master/perfil.ttl#yo> foaf:knows* ?p .
+  ?p foaf:interest ?i .
+}
+```
+
+### 19
+
+```sparql
+SELECT DISTINCT ?p1, ?p2
+WHERE {
+  ?p1 (foaf:knows/foaf:knows)* ?p2 .
+  ?p1 a foaf:Person.
+  FILTER(?p1 != ?p2) .
+}
 ```
 
 ## Ej. 4
+
+### 21
+
+### 22
