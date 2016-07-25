@@ -35,8 +35,7 @@ WHERE
 {
   ?pope wdt:P39 wd:Q19546 ;
         wdt:P569 ?birth .
-  BIND (YEAR(?birth) AS ?birth_year).
-  FILTER(1800 < ?birth_year) .
+  FILTER(1800 < YEAR(?birth)) .
   ?pope wdt:P27 ?country .
 }
 GROUP BY (?country)
