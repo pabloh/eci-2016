@@ -82,7 +82,7 @@ WHERE {
 ### 9
 
 ```sparql
-SELECT ?a, ?n
+SELECT ?a ?n
 WHERE {
   <https://raw.githubusercontent.com/pabloh/eci-2016/master/perfil.ttl#yo> foaf:knows ?a .
   OPTIONAL { ?a foaf:name ?n }
@@ -92,7 +92,7 @@ WHERE {
 ### 10
 
 ```sparql
-SELECT DISTINCT ?p1, ?p2
+SELECT DISTINCT ?p1 ?p2
 WHERE {
   ?p1 a foaf:Person .
   ?p2 a foaf:Person .
@@ -195,7 +195,7 @@ WHERE {
 ### 19
 
 ```sparql
-SELECT DISTINCT ?p1, ?p2
+SELECT DISTINCT ?p1 ?p2
 WHERE {
   ?p1 (foaf:knows/foaf:knows)* ?p2 .
   ?p1 a foaf:Person .
@@ -207,4 +207,37 @@ WHERE {
 
 ### 21
 
+```sparql
+PREFIX ns0: <http://ex.org/movie#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+SELECT ?director
+WHERE {
+  ?p ns0:likesMovie ?movie.
+  ?movie wdt:P57 ?director.
+} 
+GROUP BY (?director)
+ORDER BY DESC(COUNT(?director))
+LIMIT 1
+```
+
 ### 22
+
+```sparql
+PREFIX ns0: <http://ex.org/movie#>
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+PREFIX ex: <https://raw.githubusercontent.com/pabloh/eci-2016/master/perfil.ttl#>
+INSERT {
+  GRAPH <https://raw.githubusercontent.com/pabloh/eci-2016/master/perfil.ttl> { ex:yo ex:sameMovieTaste ?person }
+}
+WHERE {
+  ?person a foaf:Person ; ns0:likesMovie ?movie1.
+  ?movie1 wdt:P57 ?director .
+  {
+    SELECT DISTINCT ?director
+    WHERE {
+      ex:yo ns0:likesMovie ?movie2 .
+      ?movie2 wdt:P57 ?director .
+    }
+  } 
+}
+```
