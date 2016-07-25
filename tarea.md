@@ -1,6 +1,5 @@
 # Tarea
 
-### 1
 ```sparql
 # Tuples of Popes born on the 15th century with their children (if they had)
 SELECT ?pope ?son ?birth_year
@@ -15,7 +14,6 @@ WHERE
 ORDER BY(?birth_year)
 ```
 
-### 2
 
 ```sparql
 # Popes from Poland and Germany
@@ -29,7 +27,6 @@ WHERE
 }
 ```
 
-### 3
 
 ```sparql
 # Popes from the last 2 centuries by country
@@ -46,7 +43,6 @@ GROUP BY (?country)
 ORDER BY DESC(?ccountry)
 ```
 
-### 4
 
 ```sparql
 # Descendants of Popes who were also Popes
