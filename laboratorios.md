@@ -230,14 +230,9 @@ INSERT {
   GRAPH <https://raw.githubusercontent.com/pabloh/eci-2016/master/perfil.ttl> { ex:yo ex:sameMovieTaste ?person }
 }
 WHERE {
-  ?person a foaf:Person ; ns0:likesMovie ?movie1.
+  ex:yo ns0:likesMovie ?movie1 .
   ?movie1 wdt:P57 ?director .
-  {
-    SELECT ?director
-    WHERE {
-      ex:yo ns0:likesMovie ?movie2 .
-      ?movie2 wdt:P57 ?director .
-    }
-  } 
+  ?movie2 wdt:P57 ?director .
+  ?person a foaf:Person ; ns0:likesMovie ?movie2 .
 }
 ```
