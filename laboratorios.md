@@ -231,8 +231,7 @@ INSERT {
 }
 WHERE {
   ex:yo ns0:likesMovie ?movie1 .
-  ?movie1 wdt:P57 ?director .
-  ?movie2 wdt:P57 ?director .
+  ?movie1 wdt:P57/^wdt:P57 ?movie2 .
   ?person a foaf:Person ; ns0:likesMovie ?movie2 .
 }
 ```
