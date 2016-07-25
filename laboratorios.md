@@ -198,7 +198,7 @@ WHERE {
 SELECT DISTINCT ?p1, ?p2
 WHERE {
   ?p1 (foaf:knows/foaf:knows)* ?p2 .
-  ?p1 a foaf:Person.
+  ?p1 a foaf:Person .
   FILTER(?p1 != ?p2) .
 }
 ```
