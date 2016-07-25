@@ -14,7 +14,7 @@
   foaf:img <https://avatars0.githubusercontent.com/u/134495?v=3&s=400> ;
   foaf:knows <http://aidanhogan.com/teaching/ba/labs/01/perfil.ttl#yo>, <https://ar.linkedin.com/in/danycalvo/es>, <https://ar.linkedin.com/in/tlytle> ;
   foaf:interest <https://www.wikidata.org/wiki/Q660936>, <http://www.wikidata.org/entity/Q200341>, <http://www.wikidata.org/entity/Q178934> ;
-  ns0:likesMovie <http://www.wikidata.org/entity/Q426828>, <http://www.wikidata.org/entity/Q18611373>, <http://www.wikidata.org/entity/Q181086>, <https://www.wikidata.org/entity/Q105702> .
+  ns0:likesMovie <http://www.wikidata.org/entity/Q426828>, <http://www.wikidata.org/entity/Q18611373>, <http://www.wikidata.org/entity/Q181086>, <http://www.wikidata.org/entity/Q105702> .
 
 <> a foaf:Document ;
 	foaf:name "Perfil FOAF de Pablo Herrero"@es;
