@@ -233,7 +233,7 @@ WHERE {
   ?person a foaf:Person ; ns0:likesMovie ?movie1.
   ?movie1 wdt:P57 ?director .
   {
-    SELECT DISTINCT ?director
+    SELECT ?director
     WHERE {
       ex:yo ns0:likesMovie ?movie2 .
       ?movie2 wdt:P57 ?director .
